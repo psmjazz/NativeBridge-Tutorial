@@ -1,0 +1,29 @@
+PODS:
+  - iOSBridgeCore (0.0.1):
+    - SwiftProtobuf (~> 1.9.0)
+  - SwiftProtobuf (1.9.0)
+
+DEPENDENCIES:
+  - iOSBridgeCore (from `https://github.com/psmjazz/NativeBridge-iOS.git`, tag `0.0.1`)
+
+SPEC REPOS:
+  trunk:
+    - SwiftProtobuf
+
+EXTERNAL SOURCES:
+  iOSBridgeCore:
+    :git: https://github.com/psmjazz/NativeBridge-iOS.git
+    :tag: 0.0.1
+
+CHECKOUT OPTIONS:
+  iOSBridgeCore:
+    :git: https://github.com/psmjazz/NativeBridge-iOS.git
+    :tag: 0.0.1
+
+SPEC CHECKSUMS:
+  iOSBridgeCore: b9eb7b61100027257cabd00a017bdda5fad70ac7
+  SwiftProtobuf: ecbec1be9036d15655f6b3443a1c4ea693c97932
+
+PODFILE CHECKSUM: 044144fbf9ab3e764da38289323bba3ff62193ac
+
+COCOAPODS: 1.15.2

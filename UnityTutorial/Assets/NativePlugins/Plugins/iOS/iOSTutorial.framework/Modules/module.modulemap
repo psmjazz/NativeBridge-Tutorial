@@ -1,0 +1,11 @@
+framework module iOSTutorial {
+  umbrella header "iOSTutorial.h"
+  export *
+
+  module * { export * }
+}
+
+module iOSTutorial.Swift {
+  header "iOSTutorial-Swift.h"
+  requires objc
+}
