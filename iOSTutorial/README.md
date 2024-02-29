@@ -1,11 +1,11 @@
 # iOS tutorial
 ## Add Dependency
 1. Init pod file
-```
+```shell
 pod init
 ```
 2. Open pod file and add iOSBridgeCore dependency
-```
+```ruby
 target 'iOSTutorial' do
   platform :ios, '12.0'
   # Comment the next line if you don't want to use dynamic frameworks

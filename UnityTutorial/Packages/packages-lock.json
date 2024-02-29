@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.psmjzzz.nativebridge": {
+      "version": "https://github.com/psmjazz/NativeBridge-Unity.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "4b52f252cd3f43b9d9d9fcbb24620c29452a9950"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.8",
       "depth": 1,
