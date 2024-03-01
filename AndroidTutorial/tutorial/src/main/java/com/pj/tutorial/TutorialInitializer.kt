@@ -5,11 +5,13 @@ import android.content.ContentValues
 import android.database.Cursor
 import android.net.Uri
 import android.util.Log
+import java.lang.annotation.Native
 
 class TutorialInitializer : ContentProvider() {
     override fun onCreate(): Boolean {
         Log.d("SampleInitializer", "init!!!!")
-        val sample = TutorialKit()
+        val sample = SampleKit()
+        val uiController = NativeUIController()
         return true;
     }
 

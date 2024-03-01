@@ -9,8 +9,8 @@ import com.pj.core.extensions.ContainerBuilder
 import com.pj.core.extensions.add
 import com.pj.core.extensions.getString
 
-class TutorialKit {
-    private val TAG = TutorialKit::class.java.name
+class SampleKit {
+    private val TAG = SampleKit::class.java.name
 
     private val handler : MessageHandler = MessageHandler(Tag.native)
 
