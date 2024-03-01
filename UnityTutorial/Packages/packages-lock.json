@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "4b52f252cd3f43b9d9d9fcbb24620c29452a9950"
+      "hash": "4a8f1e9b9afc809aec3c1a39bc4d5422275ebfbe"
     },
     "com.unity.2d.animation": {
       "version": "7.0.8",
@@ -141,7 +141,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.16",
+      "version": "2.0.22",
       "depth": 0,
       "source": "registry",
       "dependencies": {
