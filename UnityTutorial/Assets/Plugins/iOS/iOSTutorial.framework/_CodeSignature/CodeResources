@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/iOSTutorial-Swift.h</key>
 		<data>
-		UpHp8f0LGWXyqVckyuxhSgtfN8o=
+		ztLC3ZhaJ6tfIYVC7bTmOT7a2Dg=
 		</data>
 		<key>Headers/iOSTutorial.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Modules/iOSTutorial.swiftmodule/Project/arm64-apple-ios.swiftsourceinfo</key>
 		<data>
-		2BVmflBaNpCheqJFjcSCkTtjt5M=
+		WizPpKO5/VdPQgUKd4Z4C+TcXdk=
 		</data>
 		<key>Modules/iOSTutorial.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/iOSTutorial.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		cH+eZaDNKZ7zuz6j+FXZQ8okvks=
+		TdIxrhCQO48Z9a8saN8l6XK/Ar4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -43,7 +43,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			N7mvem0kZFPW9h8eD+vbxsuWFenvP46qzXaNNJPao/Q=
+			/NDBOZtQKf9S8okQC2iQ5S72XYA4FJTWTX+lsftTrK0=
 			</data>
 		</dict>
 		<key>Headers/iOSTutorial.h</key>
@@ -57,7 +57,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			mD3K+FeZMelErFTP1HyKyIBr8/gDiICbvR4jICAXcaI=
+			7oQlIj5xLb15l/SkjzCAWNdeOvBIZI5zHli5P5+oezc=
 			</data>
 		</dict>
 		<key>Modules/iOSTutorial.swiftmodule/arm64-apple-ios.abi.json</key>
@@ -78,7 +78,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			+dvXBrDCnfTbWXop7TuSPdqRnty8lo9z32H0F/EcCIo=
+			23xqCyuZDI+LNNa+uwhc/pLPIjkGYLcWsCvRZvspxpw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

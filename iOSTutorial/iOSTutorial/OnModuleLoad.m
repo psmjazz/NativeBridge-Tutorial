@@ -1,21 +1,22 @@
+////
+////  Loader.m
+////  SampleKit
+////
+////  Created by sangmin park on 1/31/24.
+////
 //
-//  Loader.m
-//  SampleKit
+//#import <Foundation/Foundation.h>
+//#import <iOSTutorial/iOSTutorial-Swift.h>
 //
-//  Created by sangmin park on 1/31/24.
+//@interface OnModuleLoad : NSObject
 //
-
-#import <Foundation/Foundation.h>
-#import <iOSTutorial/iOSTutorial-Swift.h>
-
-@interface OnModuleLoad : NSObject
-
-@end
-
-@implementation OnModuleLoad
-
-+(void) load{
-    [Loader loadModule];
-}
-
-@end
+//@end
+//    
+//@implementation OnModuleLoad
+//
+//+(void) load{
+//    UIViewController *controller = [[UnityFramework getInstance] appController];
+//    [Loader loadModuleWithGameViewController:controller];
+//}
+//
+//@end

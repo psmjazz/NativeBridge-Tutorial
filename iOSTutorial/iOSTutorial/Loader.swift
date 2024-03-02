@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 @objc public class Loader : NSObject{
-    @objc public static func loadModule(){
-        let node = SampleKit()
+    @objc public static func loadModule(gameViewController: UIViewController){
+        let sample = SampleKit()
+        let uiController = NativeUIController(gameViewController: gameViewController)
     }
 }

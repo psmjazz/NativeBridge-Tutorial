@@ -298,10 +298,11 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 #if defined(__OBJC__)
+@class UIViewController;
 
 SWIFT_CLASS("_TtC11iOSTutorial6Loader")
 @interface Loader : NSObject
-+ (void)loadModule;
++ (void)loadModuleWithGameViewController:(UIViewController * _Nonnull)gameViewController;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
