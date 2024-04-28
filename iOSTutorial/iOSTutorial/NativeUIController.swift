@@ -6,30 +6,32 @@
 //
 
 import Foundation
-import iOSBridgeCore
+import iOSPubSub
 
 public class NativeUIController{
     
-    private let messageHandler : MessageHandler
+    private let messageHandler : Messenger
     private let gameViewController : UIViewController
     
     init(gameViewController : UIViewController){
         self.gameViewController = gameViewController
-        messageHandler = MessageHandler(tag: Tag.native)
-        messageHandler.setHandler(key: "OPEN_ALERT", handler: onReceive)
+        messageHandler = Messenger()
+        messageHandler.setReceivingRule(all: .native)
+        messageHandler.setBasePublishingTag(.game)
+        messageHandler.subscribe(key: "OPEN_ALERT", handler: onReceive)
     }
 
-    private func onReceive(messageHolder: MessageHolder){
-        let alertMessage = messageHolder.message.container.getString(key: "alertMessage") ?? ""
-        openAlert(alertMessage: alertMessage, messageHolder: messageHolder)
+    private func onReceive(message: Message){
+        let alertMessage = message.container.getString(key: "alertMessage") ?? ""
+        openAlert(alertMessage: alertMessage, message: message)
     }
 
-    private func openAlert(alertMessage: String, messageHolder: MessageHolder){
+    private func openAlert(alertMessage: String, message: Message){
         func giveBackResult(pressOk: Bool){
             var container = Container()
             container.add(key: "pressOk", value: pressOk)
-            let message = Message(key: "ALERT_RESULT", container: container)
-            messageHolder.giveBack(message: message)
+            let reply = Message(key: "ALERT_RESULT", container: container)
+            messageHandler.publish(message: reply)
         }
         
         let alertController = UIAlertController(title:"Alert", message: alertMessage, preferredStyle: .alert)

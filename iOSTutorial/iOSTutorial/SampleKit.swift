@@ -6,34 +6,36 @@
 //
 
 import Foundation
-import iOSBridgeCore
+import iOSPubSub
 
 class SampleKit{
     
-    let handler: MessageHandler
+    let messenger: Messenger
     
     init() {
-        handler = MessageHandler(tag: Tag.native)
-        handler.setHandler(key: "test", handler: onTest)
-        handler.setHandler(key: "testRecall", handler: onTestRecall)
+        messenger = Messenger()
+        messenger.setReceivingRule(all: Tag.native)
+        messenger.setBasePublishingTag(Tag.game)
+        messenger.subscribe(key: "test", handler: onTest)
+        messenger.subscribe(key: "testRecall", handler: onTestRecall)
     }
     
-    func onTest(holder: MessageHolder){
-        print("onTest : " + holder.message.key);
+    func onTest(message: Message){
+        print("onTest : " + message.key);
         
         var container = Container()
         container.add(key: "data", value: "this is iOS message :D")
         let message = Message(key: "native", container: container)
-        handler.notify(message: message, tag: Tag.game)
+        messenger.publish(message: message, tag: Tag.game)
     }
-    func onTestRecall(holder: MessageHolder){
-        let data = holder.message.container.getString(key: "data") ?? "no data....?"
+    func onTestRecall(message: Message){
+        let data = message.container.getString(key: "data") ?? "no data....?"
         print("onTestRecall : " + data);
         
         var container = Container()
         container.add(key: "data", value: ("RECALL iOS => " + data))
-        let message = Message(key: "testReturn", container: container)
-        holder.giveBack(message: message)
+        let reply = Message(key: "testReturn", container: container)
+        messenger.publish(message: reply)
     }
     
     

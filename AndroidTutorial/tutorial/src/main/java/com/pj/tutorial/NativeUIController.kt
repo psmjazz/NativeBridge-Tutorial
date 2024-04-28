@@ -1,44 +1,39 @@
 package com.pj.tutorial
 
 import android.app.AlertDialog
-import com.pj.core.MessageHandler
-import com.pj.core.MessageHolder
-import com.pj.core.Tag
-import com.pj.core.extensions.ContainerBuilder
-import com.pj.core.extensions.Message
-import com.pj.core.extensions.add
-import com.pj.core.extensions.getString
+import com.pj.pubsub.Messenger
+import com.pj.pubsub.Tag
+import com.pj.pubsub.extensions.ContainerBuilder
+import com.pj.pubsub.extensions.Message
+import com.pj.pubsub.extensions.add
+import com.pj.pubsub.extensions.getString
 import com.unity3d.player.UnityPlayer
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class NativeUIController{
-    private val handler = MessageHandler(Tag.native)
+    private val messenger = Messenger()
 
     init {
-        // Set handler with key
-        handler.setHandler("OPEN_ALERT", ::onReceive)
+        messenger.setReceivingRule(Tag.native)
+        messenger.setBasePublishingTag(Tag.game)
+        messenger.subscribe("OPEN_ALERT", ::onReceive)
     }
 
-    private fun onReceive(messageHolder : MessageHolder){
+    private fun onReceive(message : Message){
         // Get data from container
-        val alertMessage = messageHolder.message.container.getString("alertMessage")
+        val alertMessage = message.container.getString("alertMessage")
 
-        openAlert(alertMessage ?: "OPEN_ALERT", messageHolder)
+        openAlert(alertMessage ?: "OPEN_ALERT")
     }
 
-    private fun openAlert(alertMessage: String, messageHolder: MessageHolder){
+    private fun openAlert(alertMessage: String){
         fun giveBackResult(okPressed : Boolean){
             // Create ContainerBuilder and set data.
             val containerBuilder = ContainerBuilder()
             containerBuilder.add("pressOk", okPressed)
-            val message = Message("ALERT_RESULT", containerBuilder.build())
+            val reply = Message("ALERT_RESULT", containerBuilder.build())
 
             // Give back message to message notifier
-            messageHolder.giveBack(message)
+            messenger.publish(reply)
         }
 
         val builder = AlertDialog.Builder(UnityPlayer.currentActivity)

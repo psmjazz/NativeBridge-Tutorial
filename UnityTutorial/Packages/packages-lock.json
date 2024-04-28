@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "com.psmjzzz.nativebridge": {
-      "version": "https://github.com/psmjazz/NativeBridge-Unity.git",
+    "com.psmjzz.nativepubsub": {
+      "version": "https://github.com/psmjazz/NativePubSub-Unity.git#0.1.0",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "4a8f1e9b9afc809aec3c1a39bc4d5422275ebfbe"
+      "hash": "8b246273879eebcfa6130c45069e3488b5fd64ae"
     },
     "com.unity.2d.animation": {
       "version": "7.0.8",

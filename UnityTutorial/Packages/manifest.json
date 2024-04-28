@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.psmjzzz.nativebridge": "https://github.com/psmjazz/NativeBridge-Unity.git",
+    "com.psmjzz.nativepubsub": "https://github.com/psmjazz/NativePubSub-Unity.git#0.1.0",
     "com.unity.collab-proxy": "1.17.2",
     "com.unity.feature.2d": "1.0.0",
     "com.unity.ide.rider": "3.0.15",

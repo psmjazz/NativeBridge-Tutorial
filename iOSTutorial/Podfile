@@ -4,7 +4,7 @@ target 'iOSTutorial' do
   use_frameworks!
   # Pods for iOSTutorial
   # pod 'iOSBridgeCore', :path => '../../iOSBridge'
-  pod 'iOSBridgeCore', :git => 'https://github.com/psmjazz/NativeBridge-iOS.git', :tag => '0.0.1' 
+  pod 'iOSPubSub', :git => 'https://github.com/psmjazz/NativePubSub-iOS.git', :tag => '0.1.0' 
 end
 
 post_install do |installer|

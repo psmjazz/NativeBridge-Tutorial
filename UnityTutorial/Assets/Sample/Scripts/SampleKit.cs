@@ -1,32 +1,33 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using PJ.Native.Messenger;
+using PJ.Native.PubSub;
 using PJ.Native.Proto;
 using UnityEngine;
 
 public class SampleKit
 {
-    private MessageHandler handler;
+    private Messenger messenger;
 
     public SampleKit()
     {
-        handler = new MessageHandler(Tag.Game);
-        handler.SetHandler("testReturn", OnTestReturn);
-        handler.SetHandler("native", OnNative);
+        messenger = new Messenger();
+        messenger.SetReceivingRule(Tag.Game);
+        messenger.Subscribe("testReturn", OnTestReturn);
+        messenger.Subscribe("native", OnNative);
     } 
 
-    private void OnTestReturn(MessageHolder messageHolder)
+    private void OnTestReturn(Message message)
     {
-        if(messageHolder.Message.Container.TryGetValue("data", out string data))
+        if(message.Container.TryGetValue("data", out string data))
             Debug.Log("Unity... SampleNode : " + data);
         else
             Debug.Log("Unity... SampleNode : no data");
     }
 
-    private void OnNative(MessageHolder messageHolder)
+    private void OnNative(Message message)
     {
-        if(messageHolder.Message.Container.TryGetValue("data", out string data))
+        if(message.Container.TryGetValue("data", out string data))
             Debug.Log("Unity... Native : " + data);
         else
             Debug.Log("Unity... Native : no data");
@@ -37,11 +38,11 @@ public class SampleKit
         Container container1 = new Container();
         container1.Add("data", "first");
         Message message1 = new Message("test", container1);
-        handler.Notify(message1, Tag.Native);
+        messenger.Publish(message1, Tag.Native);
         
         Container container2 = new Container();
         container2.Add("data", "second");
         Message message2 = new Message("testRecall", container2);
-        handler.Notify(message2, Tag.Native);
+        messenger.Publish(message2, Tag.Native);
     }
 }

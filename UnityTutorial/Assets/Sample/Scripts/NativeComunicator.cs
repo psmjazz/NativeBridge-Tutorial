@@ -1,25 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
-using PJ.Native.Messenger;
 using PJ.Native.Proto;
+using PJ.Native.PubSub;
 using UnityEngine;
+// using PJ.Native.PubSub;
 
 public class NativeComunicator
 {
-    private MessageHandler messageHandler;
+    private Messenger messenger;
 
     public NativeComunicator()
     {
         // Create messageHandler
-        messageHandler = new MessageHandler(Tag.Game);
+        messenger = new Messenger();
+        messenger.SetReceivingRule(Tag.Game);
         
         // set handler with key.
-        messageHandler.SetHandler("ALERT_RESULT", OnReceive); 
+        messenger.Subscribe("ALERT_RESULT", OnReceive); 
     }   
 
-    private void OnReceive(MessageHolder messageHolder)
+    private void OnReceive(Message message)
     {
-        if(messageHolder.Message.Container.TryGetValue("pressOk", out bool pressOk))
+        if(message.Container.TryGetValue("pressOk", out bool pressOk))
         {
             Debug.Log("user press? " + pressOk);
         }
@@ -32,6 +34,6 @@ public class NativeComunicator
         container.Add("alertMessage", alertMessage);
         Message message = new Message("OPEN_ALERT", container);
         // NotifyMessage 
-        messageHandler.Notify(message, Tag.Native);
+        messenger.Publish(message, Tag.Native);
     }
 }
